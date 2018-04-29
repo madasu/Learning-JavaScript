@@ -1,1 +1,0 @@
-/* BIND, CALL AND APPLY */
