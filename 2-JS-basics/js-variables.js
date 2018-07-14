@@ -1,4 +1,6 @@
+/************************/
 /* JAVASCRIPT VARIABLES */
+/************************/
 
 // Examples of string variables
 // var firstName = "Paulo";
