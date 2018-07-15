@@ -5,7 +5,7 @@
 var firstName = 'Paulo';
 var role = 'student';
 
-if (role === 'worker') {
+if(role === 'worker') {
     console.log(firstName + ' is a worker!');
 } else {
     console.log(firstName + ' is a student!');
