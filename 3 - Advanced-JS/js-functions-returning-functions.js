@@ -10,7 +10,7 @@ function interviewQuestion(job) {
         };
     } else if(job === 'teacher') {
         return function(name) {
-            console.log('What subject do you like teaching the most, ' + name + '? If there is more than one, of course.');
+            console.log('What subject do you like teaching the most, ' + name + '? If you teach more than one, of course.');
         };
     } else {
         return function(name) {
