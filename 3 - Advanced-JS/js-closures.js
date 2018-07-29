@@ -2,7 +2,8 @@
 /* JAVASCRIPT CLOSURES */
 /***********************/
 
-/* Example of a function that calculates how many years a person has left until retirement (explaining closures) */
+/* Example of a function that calculates how many years a person has left until 
+retirement (explaining closures) */
 function retirement(retirementAge) {
     return function(yearOfBirth) {
         var a = ' years left until retirement.';
@@ -24,7 +25,8 @@ retirementIceland(1980);
 // retirement(65)(1980);
 // retirement(67)(1980);
 
-/* Rewriting the interviewQuestion() function from the 'functions returning functions' topic now using closures */
+/* Rewriting the interviewQuestion() function from the 'functions returning functions' 
+topic now using closures */
 function interviewQuestion(job) {
     return function(name) {
         if(job === 'programmer') {

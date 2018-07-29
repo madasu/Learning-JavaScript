@@ -3,7 +3,8 @@
 /************************************/
 
 // Variables containing primitives hold that data inside the object itself. 
-// Variables associated with objects don't contain the object, but a reference to the place in memory where the object is stored
+/* Variables associated with objects don't contain the object, but a reference to the 
+place in memory where the object is stored */
 
 // Primitives example
 var a = 23;
