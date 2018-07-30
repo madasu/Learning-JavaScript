@@ -15,7 +15,7 @@
 
 * 3. Store them all inside an array; 
 
-* 4. Select one random question an log it to the console, together with the possible answers (each question should have a number). Hint: write a method for the question objects to succeed a the task;
+* 4. Select one random question an log it to the console, together with the possible answers (each question should have a number). Hint: write a method for the question objects to succeed at the task;
 
 * 5. Use the 'prompt' function to ask the user for the correct answer. The user should input the number of the correct answer such as you displayed it on 'task 4';
 
@@ -72,5 +72,13 @@ var correctAnswer3 = answers3[2];
 var question1 = new Question(q1, answers1, correctAnswer1);
 var question2 = new Question(q2, answers2, correctAnswer2);
 var question3 = new Question(q3, answers3, correctAnswer3);
+
+/* ---------------------------------------------------------------------------------- */
+
+/*********************************************/
+/* STORING ALL THE QUESTIONS INSIDE AN ARRAY */
+/*********************************************/
+
+var questions = [question1, question2, question3];
 
 /* ---------------------------------------------------------------------------------- */
