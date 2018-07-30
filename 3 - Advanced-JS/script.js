@@ -35,3 +35,42 @@
 
 */
 
+/* ---------------------------------------------------------------------------------- */
+
+/**********************************************/
+/* CREATING THE QUESTION FUNCTION CONSTRUCTOR */
+/**********************************************/
+
+var Question = function(question, answers, correctAnswer) {
+    this.question = question;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
+}; 
+
+/* ---------------------------------------------------------------------------------- */
+
+/***************************************/
+/* CREATING THE QUESTIONS FOR THE QUIZ */
+/***************************************/
+
+// Storing the questions #1, #2 and #3 in variables
+var q1 = 'Is JavaScript the coolest programming language in the world?';
+var q2 = 'What is the name of this course\'s teacher?';
+var q3 = 'What word does best in describing coding?';
+
+// Storing the possible answers for question #1, #2 and #3 in arrays
+var answers1 = ['yes', 'no'];
+var answers2 = ['John', 'Michael', 'Jonas'];
+var answers3 = ['Boring', 'Hard', 'Fun', 'Tedious'];
+
+// Pointing out the correct answer for question #1, #2 and #3
+var correctAnswer1 = answers1[0];
+var correctAnswer2 = answers2[2];
+var correctAnswer3 = answers3[2];
+
+// Creating the objects for questions #1, #2 and #3
+var question1 = new Question(q1, answers1, correctAnswer1);
+var question2 = new Question(q2, answers2, correctAnswer2);
+var question3 = new Question(q3, answers3, correctAnswer3);
+
+/* ---------------------------------------------------------------------------------- */
