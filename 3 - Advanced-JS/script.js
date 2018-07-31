@@ -82,3 +82,20 @@ var question3 = new Question(q3, answers3, correctAnswer3);
 var questions = [question1, question2, question3];
 
 /* ---------------------------------------------------------------------------------- */
+
+/*******************************************************************************************************/
+/* METHOD THAT SELECTS A RANDOM QUESTION AND LOG IT TO THE CONSOLE, TOGETHER WITH THE POSSIBLE ANSWERS */
+/*******************************************************************************************************/
+Question.prototype.selectQuestion = function() {
+    var randomQuestionNumber = Math.floor(Math.random() * 3);
+    var randomQuestion = questions[randomQuestionNumber];
+    console.log(randomQuestion.question);
+    
+    for(var i = 0; i < randomQuestion.answers.length; i++) {
+        console.log(i + ': ' + randomQuestion.answers[i]);
+    }
+};
+
+question1.selectQuestion(); 
+
+/* ---------------------------------------------------------------------------------- */
