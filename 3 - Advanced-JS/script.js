@@ -35,7 +35,7 @@
 
 */
 
-/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
 
 /**********************************************/
 /* CREATING THE QUESTION FUNCTION CONSTRUCTOR */
@@ -47,7 +47,7 @@ var Question = function(question, answers, correctAnswer) {
     this.correctAnswer = correctAnswer;
 }; 
 
-/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
 
 /***************************************/
 /* CREATING THE QUESTIONS FOR THE QUIZ */
@@ -73,7 +73,7 @@ var question1 = new Question(q1, answers1, correctAnswer1);
 var question2 = new Question(q2, answers2, correctAnswer2);
 var question3 = new Question(q3, answers3, correctAnswer3);
 
-/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
 
 /*********************************************/
 /* STORING ALL THE QUESTIONS INSIDE AN ARRAY */
@@ -86,16 +86,55 @@ var questions = [question1, question2, question3];
 /*******************************************************************************************************/
 /* METHOD THAT SELECTS A RANDOM QUESTION AND LOG IT TO THE CONSOLE, TOGETHER WITH THE POSSIBLE ANSWERS */
 /*******************************************************************************************************/
+
+// Declaring the 'randomQuestion' variable on the global scope
+var randomQuestion;
+
+// Creating the method that selects a random question 
 Question.prototype.selectQuestion = function() {
     var randomQuestionNumber = Math.floor(Math.random() * 3);
-    var randomQuestion = questions[randomQuestionNumber];
+    randomQuestion = questions[randomQuestionNumber];
     console.log(randomQuestion.question);
     
     for(var i = 0; i < randomQuestion.answers.length; i++) {
         console.log(i + ': ' + randomQuestion.answers[i]);
     }
+
+    return randomQuestion.question;
 };
 
+// Calling the 'selectQuestion' method to select a random question
 question1.selectQuestion(); 
 
-/* ---------------------------------------------------------------------------------- */
+/* Declaring a variable containing the returned random question (it will be used on the 'checkAnswer' 
+method) */
+var question = randomQuestion.question;
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/********************************************************************/
+/* USING THE PROMPT FUNCTION TO ASK THE USER FOR THE CORRECT ANSWER */
+/********************************************************************/
+
+// The variable 'answer' that will hold the answer typed at the prompt 
+var answer = prompt('Please select the correct answer (just type the number)');
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/**********************************/
+/* CHECK IF THE ANSWER IS CORRECT */
+/**********************************/
+
+// Creating the method that checks if the answer is correct 
+Question.prototype.checkAnswer = function() {
+    if(question === questions[0].question && answer === '0' || question === questions[1].question && answer === '2' || question === questions[2].question && answer === '2') {
+        console.log('Correct answer!');
+    } else {
+        console.log('Wrong answer. Try again!');
+    }
+};
+
+// Calling the 'selectQuestion' method to checking if the answer is correct
+question1.checkAnswer();
+
+/* ---------------------------------------------------------------------------------------------------- */
