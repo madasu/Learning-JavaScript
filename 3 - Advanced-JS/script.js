@@ -91,7 +91,7 @@ var questions = [question1, question2, question3];
 var randomQuestion;
 
 // Creating the method that selects a random question 
-Question.prototype.selectQuestion = function() {
+Question.prototype.selectQuestion = (function() {
     var randomQuestionNumber = Math.floor(Math.random() * 3);
     randomQuestion = questions[randomQuestionNumber];
     console.log(randomQuestion.question);
@@ -101,10 +101,7 @@ Question.prototype.selectQuestion = function() {
     }
 
     return randomQuestion.question;
-};
-
-// Calling the 'selectQuestion' method to select a random question
-question1.selectQuestion(); 
+})();
 
 /* Declaring a variable containing the returned random question (it will be used on the 'checkAnswer' 
 method) */
@@ -126,15 +123,12 @@ var answer = prompt('Please select the correct answer (just type the number)');
 /**********************************/
 
 // Creating the method that checks if the answer is correct 
-Question.prototype.checkAnswer = function() {
+Question.prototype.checkAnswer = (function() {
     if(question === questions[0].question && answer === '0' || question === questions[1].question && answer === '2' || question === questions[2].question && answer === '2') {
         console.log('Correct answer!');
     } else {
         console.log('Wrong answer. Try again!');
     }
-};
-
-// Calling the 'selectQuestion' method to checking if the answer is correct
-question1.checkAnswer();
+})();
 
 /* ---------------------------------------------------------------------------------------------------- */
