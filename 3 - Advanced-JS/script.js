@@ -37,6 +37,12 @@
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+/************************************/
+/* --- BASIC VERSION OF THE QUIZ --- */
+/************************************/
+
+/* ---------------------------------------------------------------------------------------------------- */
+
 /**********************************************/
 /* CREATING THE QUESTION FUNCTION CONSTRUCTOR */
 /**********************************************/
@@ -96,10 +102,13 @@ Question.prototype.selectQuestion = (function() {
     randomQuestion = questions[randomQuestionNumber];
     console.log(randomQuestion.question);
     
+    
     for(var i = 0; i < randomQuestion.answers.length; i++) {
         console.log(i + ': ' + randomQuestion.answers[i]);
     }
-
+    
+    nextQuestion();
+    
     return randomQuestion.question;
 })();
 
@@ -114,7 +123,7 @@ var question = randomQuestion.question;
 /********************************************************************/
 
 // The variable 'answer' that will hold the answer typed at the prompt 
-var answer = prompt('Please select the correct answer (just type the number)');
+var answer = prompt('Please select the correct answer (just type the number) Or type \'exit\' to quit.');
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -132,3 +141,19 @@ Question.prototype.checkAnswer = (function() {
 })();
 
 /* ---------------------------------------------------------------------------------------------------- */
+
+/********************************************/
+/* --- EXPERT LEVEL VERSION OF THE QUIZ --- */
+/********************************************/
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/****************************************/
+/* 'NEXT RANDOM QUESTION' FUNCTIONALITY */
+/****************************************/
+
+/* Creating the function that selects a 'next random question' after the result of the previous one has 
+been displayed */
+function nextQuestion() {
+    
+}
