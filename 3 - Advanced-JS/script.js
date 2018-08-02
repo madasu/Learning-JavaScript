@@ -37,6 +37,12 @@
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+/************************************/
+/* --- BASIC VERSION OF THE QUIZ --- */
+/************************************/
+
+/* ---------------------------------------------------------------------------------------------------- */
+
 /**********************************************/
 /* CREATING THE QUESTION FUNCTION CONSTRUCTOR */
 /**********************************************/
@@ -91,16 +97,25 @@ var questions = [question1, question2, question3];
 var randomQuestion;
 
 // Creating the method that selects a random question 
-Question.prototype.selectQuestion = (function() {
-    var randomQuestionNumber = Math.floor(Math.random() * 3);
-    randomQuestion = questions[randomQuestionNumber];
-    console.log(randomQuestion.question);
+var selectQuestion = Question.prototype.selectQuestion = (function() {
+
+    function createQuestion() {
+        
+        var randomQuestionNumber = Math.floor(Math.random() * 3);
+        randomQuestion = questions[randomQuestionNumber];
+        console.log(randomQuestion.question);
     
-    for(var i = 0; i < randomQuestion.answers.length; i++) {
-        console.log(i + ': ' + randomQuestion.answers[i]);
+        for(var i = 0; i < randomQuestion.answers.length; i++) {
+            console.log(i + ': ' + randomQuestion.answers[i]);
+        }
+    
+        return randomQuestion.question;
+
     }
 
-    return randomQuestion.question;
+    createQuestion();
+    return createQuestion;
+
 })();
 
 /* Declaring a variable containing the returned random question (it will be used on the 'checkAnswer' 
@@ -114,7 +129,12 @@ var question = randomQuestion.question;
 /********************************************************************/
 
 // The variable 'answer' that will hold the answer typed at the prompt 
-var answer = prompt('Please select the correct answer (just type the number)');
+function answerPrompt() {
+    var answer = prompt('Please select the correct answer (just type the number) Or type \'exit\' to quit.');
+    return answer;
+}
+
+var questionAnswer = answerPrompt();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -123,12 +143,57 @@ var answer = prompt('Please select the correct answer (just type the number)');
 /**********************************/
 
 // Creating the method that checks if the answer is correct 
-Question.prototype.checkAnswer = (function() {
-    if(question === questions[0].question && answer === '0' || question === questions[1].question && answer === '2' || question === questions[2].question && answer === '2') {
-        console.log('Correct answer!');
-    } else {
-        console.log('Wrong answer. Try again!');
+var checkAnswer = Question.prototype.checkAnswer = (function() {
+
+    function checkIfAnswerIsRight() {
+        
+        if ((question === questions[0].question && questionAnswer === "0") || 
+        (question === questions[1].question && questionAnswer === "2") || 
+        (question === questions[2].question && questionAnswer === "2")) {
+        console.log("Correct answer!");
+    
+        } else {
+            console.log("Wrong answer. Try again! :)");
+        }
+
     }
+
+    checkIfAnswerIsRight();
+    return checkIfAnswerIsRight;
+
 })();
 
+// Calling the 'nextQuestion' function 
+nextQuestion();
+
 /* ---------------------------------------------------------------------------------------------------- */
+
+/********************************************/
+/* --- EXPERT LEVEL VERSION OF THE QUIZ --- */
+/********************************************/
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/****************************************/
+/* 'NEXT RANDOM QUESTION' FUNCTIONALITY */
+/****************************************/
+
+/* Creating the function that selects a 'next random question' after the result of the previous one has 
+been displayed */
+function nextQuestion() {
+    selectQuestion();
+    answerPrompt();
+    checkAnswer();
+    nextQuestion();
+
+    if(answer === 'exit') {
+        return;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/***********************************************************************/
+/* 'NEXT RANDOM QUESTION' FUNCTIONALITY CONDITIONALS AND 'EXIT' OPTION */
+/***********************************************************************/
+
