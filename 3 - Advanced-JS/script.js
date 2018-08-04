@@ -182,7 +182,7 @@ nextQuestion();
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
 been displayed */
 function nextQuestion() {
-    
+    selectQuestion();   
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -190,4 +190,3 @@ function nextQuestion() {
 /***********************************************************************/
 /* 'NEXT RANDOM QUESTION' FUNCTIONALITY CONDITIONALS AND 'EXIT' OPTION */
 /***********************************************************************/
-
