@@ -142,6 +142,8 @@ var questionAnswer = answerPrompt();
 /* CHECK IF THE ANSWER IS CORRECT */
 /**********************************/
 
+var result;
+
 // Creating the method that checks if the answer is correct 
 var checkAnswer = Question.prototype.checkAnswer = (function() {
 
@@ -151,21 +153,23 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
         (question === questions[1].question && questionAnswer === "2") || 
         (question === questions[2].question && questionAnswer === "2")) {
             console.log("Correct answer!");
-        } else if(questionAnswer === 'exit') {
-            return; 
+            console.log(result);  
         } else {
-            console.log("Wrong answer. Try again! :)");
+            result = "Wrong answer. Try again! :)";
+            console.log(result);            
         }
+
+        return result;
         
     }
+    
+    nextQuestion();
 
     checkIfAnswerIsRight();
     return checkIfAnswerIsRight;
 
 })();
 
-// Calling the 'nextQuestion' function 
-nextQuestion();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -182,7 +186,8 @@ nextQuestion();
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
 been displayed */
 function nextQuestion() {
-    selectQuestion();   
+    selectQuestion(); 
+    answerPrompt();  
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
