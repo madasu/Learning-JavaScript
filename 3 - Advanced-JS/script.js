@@ -131,10 +131,10 @@ var question = randomQuestion.question;
 // The variable 'answer' that will hold the answer typed at the prompt 
 function answerPrompt() {
     var answer = prompt('Please select the correct answer (just type the number) Or type \'exit\' to quit.');
-    return answer;
+    return answer; 
 }
 
-var questionAnswer = answerPrompt();
+var questionAnswer = answerPrompt(); 
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -143,29 +143,33 @@ var questionAnswer = answerPrompt();
 /**********************************/
 
 // Creating the method that checks if the answer is correct 
-var checkAnswer = Question.prototype.checkAnswer = (function() {
+Question.prototype.checkAnswer = (function() {
 
-    function checkIfAnswerIsRight() {
+    function checkAnswer() {
         
-        if ((question === questions[0].question && questionAnswer === "0") || 
-        (question === questions[1].question && questionAnswer === "2") || 
-        (question === questions[2].question && questionAnswer === "2")) {
-            console.log("Correct answer!");
+        if ((question === questions[0].question && questionAnswer === '0') ||
+        (question === questions[1].question && questionAnswer === '2') || 
+        (question === questions[2].question && questionAnswer === '2')) {
+            console.log('Correct answer!'); 
         } else if(questionAnswer === 'exit') {
-            return; 
+            return;           
         } else {
             console.log("Wrong answer. Try again! :)");
         }
+
+        if(selectQuestion) {
+            nextQuestion();
+        }
+
+        if(nextQuestion) {
+            checkAnswer(nextQuestionAnswer);
+        }
         
-    }
-
-    checkIfAnswerIsRight();
-    return checkIfAnswerIsRight;
-
+    }   
+        checkAnswer();
+        return checkAnswer;
+        
 })();
-
-// Calling the 'nextQuestion' function 
-nextQuestion();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -178,11 +182,12 @@ nextQuestion();
 /****************************************/
 /* 'NEXT RANDOM QUESTION' FUNCTIONALITY */
 /****************************************/
-
+var nextQuestionAnswer;
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
 been displayed */
 function nextQuestion() {
-    
+    selectQuestion();
+    nextQuestionAnswer = answerPrompt();
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -190,4 +195,3 @@ function nextQuestion() {
 /***********************************************************************/
 /* 'NEXT RANDOM QUESTION' FUNCTIONALITY CONDITIONALS AND 'EXIT' OPTION */
 /***********************************************************************/
-
