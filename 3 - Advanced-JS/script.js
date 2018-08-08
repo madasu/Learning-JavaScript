@@ -179,6 +179,7 @@ nextQuestion();
 /* 'NEXT RANDOM QUESTION' FUNCTIONALITY */
 /****************************************/
 
+// Declaring the fundamental variables associated with the 'next question' functionality
 var newQuestion, newQuestionAnswer;
 
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
@@ -186,19 +187,26 @@ been displayed */
 function nextQuestion() {
     
     // Select the next random question 
+    if(questionAnswer !== 'exit') {
     newQuestion = selectQuestion();
+    } else {
+        return;
+    }
 
     // Prompt the user for a new answer 
     newQuestionAnswer = answerPrompt();
 
+    // Correcting the new question 
     if((newQuestion === questions[0].question && newQuestionAnswer === '0') ||
     (newQuestion === questions[1].question && newQuestionAnswer === '2') || 
     (newQuestion === questions[2].question && newQuestionAnswer === '2')) {
         console.log('Correct answer!');
+        nextQuestion();
     } else if(newQuestionAnswer === 'exit') {
         return;
     } else {
         console.log('Wrong answer. Try again :)');
+        nextQuestion();
     }
 
 }
