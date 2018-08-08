@@ -156,14 +156,6 @@ Question.prototype.checkAnswer = (function() {
         } else {
             console.log("Wrong answer. Try again! :)");
         }
-
-        if(selectQuestion) {
-            nextQuestion();
-        }
-
-        if(nextQuestion) {
-            checkAnswer(nextQuestionAnswer);
-        }
         
     }   
         checkAnswer();
@@ -186,8 +178,13 @@ var nextQuestionAnswer;
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
 been displayed */
 function nextQuestion() {
+    
+    // Select the next random question 
     selectQuestion();
-    nextQuestionAnswer = answerPrompt();
+
+    // Prompt the user for a new answer 
+    
+    // Checking the new answer 
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
