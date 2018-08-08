@@ -149,18 +149,16 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
 
     function checkAnswer() {
         
-        if ((question === questions[0].question && questionAnswer === '0') ||
+        if((question === questions[0].question && questionAnswer === '0') ||
         (question === questions[1].question && questionAnswer === '2') || 
         (question === questions[2].question && questionAnswer === '2')) {
-           response = 'Correct answer!'; 
+           console.log('Correct answer!');
         } else if(questionAnswer === 'exit') {
             return;           
         } else {
-          response = 'Wrong answer. Try again! :)';
+           console.log('Wrong answer. Try again! :)');
         }
 
-        return response;
-        
     }       
 
     checkAnswer();
@@ -168,9 +166,7 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
         
 })();
 
-questionResult = response;
-console.log(questionResult);
-
+nextQuestion();
 /* ---------------------------------------------------------------------------------------------------- */
 
 /********************************************/
@@ -183,15 +179,35 @@ console.log(questionResult);
 /* 'NEXT RANDOM QUESTION' FUNCTIONALITY */
 /****************************************/
 
+// Declaring the fundamental variables associated with the 'next question' functionality
+var newQuestion, newQuestionAnswer;
+
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
 been displayed */
 function nextQuestion() {
     
     // Select the next random question 
-    selectQuestion();
+    if(questionAnswer !== 'exit') {
+    newQuestion = selectQuestion();
+    } else {
+        return;
+    }
 
     // Prompt the user for a new answer 
-    questionAnswer = answerPrompt();
+    newQuestionAnswer = answerPrompt();
+
+    // Correcting the new question 
+    if((newQuestion === questions[0].question && newQuestionAnswer === '0') ||
+    (newQuestion === questions[1].question && newQuestionAnswer === '2') || 
+    (newQuestion === questions[2].question && newQuestionAnswer === '2')) {
+        console.log('Correct answer!');
+        nextQuestion();
+    } else if(newQuestionAnswer === 'exit') {
+        return;
+    } else {
+        console.log('Wrong answer. Try again :)');
+        nextQuestion();
+    }
 
 }
 
