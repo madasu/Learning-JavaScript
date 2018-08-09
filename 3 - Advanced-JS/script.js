@@ -142,8 +142,6 @@ var questionAnswer = answerPrompt();
 /* CHECK IF THE ANSWER IS CORRECT */
 /**********************************/
 
-var response;
-
 // Creating the method that checks if the answer is correct 
 var checkAnswer = Question.prototype.checkAnswer = (function() {
 
@@ -167,6 +165,7 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
 })();
 
 nextQuestion();
+
 /* ---------------------------------------------------------------------------------------------------- */
 
 /********************************************/
@@ -199,9 +198,11 @@ function nextQuestion() {
     // Correcting the new question 
     if((newQuestion === questions[0].question && newQuestionAnswer === '0') ||
     (newQuestion === questions[1].question && newQuestionAnswer === '2') || 
-    (newQuestion === questions[2].question && newQuestionAnswer === '2')) {
+    (newQuestion === questions[2].question && newQuestionAnswer === '2')) { 
         console.log('Correct answer!');
         nextQuestion();
+        score += 1;
+        console.log(score);        
     } else if(newQuestionAnswer === 'exit') {
         return;
     } else {
@@ -213,6 +214,11 @@ function nextQuestion() {
 
 /* ---------------------------------------------------------------------------------------------------- */
 
-/***********************************************************************/
-/* 'NEXT RANDOM QUESTION' FUNCTIONALITY CONDITIONALS AND 'EXIT' OPTION */
-/***********************************************************************/
+/************************************/
+/* 'SAVING THE SCORE' FUNCTIONALITY */
+/************************************/
+
+// Declaring the variable 'score' on the global scope 
+var score = 0; 
+
+// 11. Display the score in the console. Use yet another method for this task.
