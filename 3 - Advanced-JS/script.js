@@ -151,10 +151,14 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
         (question === questions[1].question && questionAnswer === '2') || 
         (question === questions[2].question && questionAnswer === '2')) {
            console.log('Correct answer!');
+           console.log('-------------------');
+           console.log('Your score is ' + score + '!');
         } else if(questionAnswer === 'exit') {
             return;           
         } else {
            console.log('Wrong answer. Try again! :)');
+           console.log('-------------------');
+           console.log('Your score is ' + score + '!');
         }
 
     }       
@@ -202,11 +206,14 @@ function nextQuestion() {
         console.log('Correct answer!');
         nextQuestion();
         score += 1;
-        console.log(score);        
+        console.log('-------------------');
+        console.log('Your score is ' + score + '!');      
     } else if(newQuestionAnswer === 'exit') {
         return;
     } else {
         console.log('Wrong answer. Try again :)');
+        console.log('-------------------');
+        console.log('Your score is ' + score + '!');
         nextQuestion();
     }
 
