@@ -87,14 +87,29 @@ var question3 = new Question(q3, answers3, correctAnswer3);
 
 var questions = [question1, question2, question3];
 
+/* ---------------------------------------------------------------------------------------------------- */
+
+/*************************************************/
+/* METHOD THAT DISPLAYS THE SCORE IN THE CONSOLE */
+/*************************************************/
+
+var displayScore = Question.prototype.displayScore = (function() {
+
+    return function(score) {
+        console.log('Your current score is: ' + score);
+        console.log('-------------------------------------');
+    };
+
+})();
+
 /* ---------------------------------------------------------------------------------- */
 
 /*******************************************************************************************************/
 /* METHOD THAT SELECTS A RANDOM QUESTION AND LOG IT TO THE CONSOLE, TOGETHER WITH THE POSSIBLE ANSWERS */
 /*******************************************************************************************************/
 
-// Declaring the 'randomQuestion' variable on the global scope
-var randomQuestion;
+// Declaring the 'randomQuestion', 'answerCorrect' and 'score' variables on the global scope
+var randomQuestion, answerCorrect, score = 0;
 
 // Creating the method that selects a random question 
 var selectQuestion = Question.prototype.selectQuestion = (function() {
@@ -151,14 +166,13 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
         (question === questions[1].question && questionAnswer === '2') || 
         (question === questions[2].question && questionAnswer === '2')) {
            console.log('Correct answer!');
-           console.log('Your score is ' + score + '!');
-           console.log('-------------------');
+           answerCorrect = true; 
+           score += 1;          
         } else if(questionAnswer === 'exit') {
             return;           
         } else {
            console.log('Wrong answer. Try again! :)');
-           console.log('Your score is ' + score + '!');
-           console.log('-------------------');
+           answerCorrect = false; 
         }
 
     }       
@@ -168,6 +182,7 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
         
 })();
 
+displayScore(score);
 nextQuestion();
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -204,28 +219,18 @@ function nextQuestion() {
     (newQuestion === questions[1].question && newQuestionAnswer === '2') || 
     (newQuestion === questions[2].question && newQuestionAnswer === '2')) { 
         console.log('Correct answer!');
-        nextQuestion();
-        score += 1;
-        console.log('Your score is ' + score + '!');      
-        console.log('-------------------');
+        answerCorrect = true;
+        score += 1;        
+        displayScore(score);
+        nextQuestion();        
     } else if(newQuestionAnswer === 'exit') {
         return;
     } else {
         console.log('Wrong answer. Try again :)');
-        console.log('Your score is ' + score + '!');
-        console.log('-------------------');
+        answerCorrect = false;
+        displayScore(score);        
         nextQuestion();
     }
-
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
-
-/************************************/
-/* 'SAVING THE SCORE' FUNCTIONALITY */
-/************************************/
-
-// Declaring the variable 'score' on the global scope 
-var score = 0; 
-
-// 11. Display the score in the console. Use yet another method for this task.
