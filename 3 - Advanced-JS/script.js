@@ -96,13 +96,21 @@ var questions = [question1, question2, question3];
 var displayScore = Question.prototype.displayScore = (function() {
 
     return function(score) {
+        
+        // Not displaying the result if the player quits before answering the first question
+        if (questionAnswer === 'exit') {
+            return;
+        }
+        
+        // Displaying the score in the console
         console.log('Your current score is: ' + score);
         console.log('-------------------------------------');
+
     };
 
 })();
 
-/* ---------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
 
 /*******************************************************************************************************/
 /* METHOD THAT SELECTS A RANDOM QUESTION AND LOG IT TO THE CONSOLE, TOGETHER WITH THE POSSIBLE ANSWERS */
@@ -182,7 +190,10 @@ var checkAnswer = Question.prototype.checkAnswer = (function() {
         
 })();
 
+// Displaying the current score in the console 
 displayScore(score);
+
+// Calling the 'next question' function
 nextQuestion();
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -221,14 +232,23 @@ function nextQuestion() {
         console.log('Correct answer!');
         answerCorrect = true;
         score += 1;        
+
+        // Displaying the current score in the console 
         displayScore(score);
+
+        // Calling the 'next question' function
         nextQuestion();        
+        
     } else if(newQuestionAnswer === 'exit') {
         return;
     } else {
         console.log('Wrong answer. Try again :)');
         answerCorrect = false;
-        displayScore(score);        
+
+        // Displaying the current score in the console 
+        displayScore(score);    
+
+        // Calling the 'next question' function
         nextQuestion();
     }
 }
