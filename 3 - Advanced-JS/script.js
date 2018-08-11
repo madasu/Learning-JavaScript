@@ -206,13 +206,13 @@ function nextQuestion() {
         console.log('Correct answer!');
         nextQuestion();
         score += 1;
-        console.log('-------------------');
         console.log('Your score is ' + score + '!');      
+        console.log('-------------------');
     } else if(newQuestionAnswer === 'exit') {
         return;
     } else {
-        console.log('Wrong answer. Try again :)');
         console.log('-------------------');
+        console.log('Wrong answer. Try again :)');
         console.log('Your score is ' + score + '!');
         nextQuestion();
     }
