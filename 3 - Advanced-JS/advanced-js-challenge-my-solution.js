@@ -47,7 +47,11 @@
 /* CREATING THE QUESTION FUNCTION CONSTRUCTOR */
 /**********************************************/
 
-
+var Question = function(question, answers, correctAnswer) {
+    this.question = question;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
+}; 
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -56,15 +60,24 @@
 /***************************************/
 
 // Storing the questions #1, #2 and #3 in variables
-
+var q1 = 'Is JavaScript the coolest programming language in the world?';
+var q2 = 'What is the name of this course\'s teacher?';
+var q3 = 'What word does best in describing coding?';
 
 // Storing the possible answers for question #1, #2 and #3 in arrays
-
+var answers1 = ['yes', 'no'];
+var answers2 = ['John', 'Michael', 'Jonas'];
+var answers3 = ['Boring', 'Hard', 'Fun', 'Tedious'];
 
 // Pointing out the correct answer for question #1, #2 and #3
-
+var correctAnswer1 = answers1[0];
+var correctAnswer2 = answers2[2];
+var correctAnswer3 = answers3[2];
 
 // Creating the objects for questions #1, #2 and #3
+var question1 = new Question(q1, answers1, correctAnswer1);
+var question2 = new Question(q2, answers2, correctAnswer2);
+var question3 = new Question(q3, answers3, correctAnswer3);
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -72,6 +85,7 @@
 /* STORING ALL THE QUESTIONS INSIDE AN ARRAY */
 /*********************************************/
 
+var questions = [question1, question2, question3];
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -79,6 +93,22 @@
 /* METHOD THAT DISPLAYS THE SCORE IN THE CONSOLE */
 /*************************************************/
 
+var displayScore = Question.prototype.displayScore = (function() {
+
+    return function(score) {
+        
+        // Not displaying the result if the player quits before answering the first question
+        if (questionAnswer === 'exit') {
+            return;
+        }
+        
+        // Displaying the score in the console
+        console.log('Your current score is: ' + score);
+        console.log('-------------------------------------');
+
+    };
+
+})();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -87,11 +117,33 @@
 /*******************************************************************************************************/
 
 // Declaring the 'randomQuestion', 'answerCorrect' and 'score' variables on the global scope
+var randomQuestion, answerCorrect, score = 0;
 
 // Creating the method that selects a random question 
+var selectQuestion = Question.prototype.selectQuestion = (function() {
+
+    function createQuestion() {
         
+        var randomQuestionNumber = Math.floor(Math.random() * 3);
+        randomQuestion = questions[randomQuestionNumber];
+        console.log(randomQuestion.question);
+    
+        for(var i = 0; i < randomQuestion.answers.length; i++) {
+            console.log(i + ': ' + randomQuestion.answers[i]);
+        }
+    
+        return randomQuestion.question;
+
+    }
+
+    createQuestion();
+    return createQuestion;
+
+})();
+
 /* Declaring a variable containing the returned random question (it will be used on the 'checkAnswer' 
 method) */
+var question = randomQuestion.question;
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -100,6 +152,12 @@ method) */
 /********************************************************************/
 
 // The variable 'answer' that will hold the answer typed at the prompt 
+function answerPrompt() {
+    var answer = prompt('Please select the correct answer (just type the number) Or type \'exit\' to quit.');
+    return answer; 
+}
+
+var questionAnswer = answerPrompt(); 
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -108,10 +166,35 @@ method) */
 /**********************************/
 
 // Creating the method that checks if the answer is correct 
+var checkAnswer = Question.prototype.checkAnswer = (function() {
+
+    function checkAnswer() {
+        
+        if((question === questions[0].question && questionAnswer === '0') ||
+        (question === questions[1].question && questionAnswer === '2') || 
+        (question === questions[2].question && questionAnswer === '2')) {
+           console.log('Correct answer!');
+           answerCorrect = true; 
+           score += 1;          
+        } else if(questionAnswer === 'exit') {
+            return;           
+        } else {
+           console.log('Wrong answer. Try again! :)');
+           answerCorrect = false; 
+        }
+
+    }       
+
+    checkAnswer();
+    return checkAnswer;
+        
+})();
 
 // Displaying the current score in the console 
+displayScore(score);
 
 // Calling the 'next question' function
+nextQuestion();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
@@ -126,22 +209,48 @@ method) */
 /****************************************/
 
 // Declaring the fundamental variables associated with the 'next question' functionality
+var newQuestion, newQuestionAnswer;
 
 /* Creating the function that selects a 'next random question' after the result of the previous one has 
 been displayed */
+function nextQuestion() {
     
     // Select the next random question 
+    if(questionAnswer !== 'exit') {
+    newQuestion = selectQuestion();
+    } else {
+        return;
+    }
 
     // Prompt the user for a new answer 
+    newQuestionAnswer = answerPrompt();
 
     // Correcting the new question 
+    if((newQuestion === questions[0].question && newQuestionAnswer === '0') ||
+    (newQuestion === questions[1].question && newQuestionAnswer === '2') || 
+    (newQuestion === questions[2].question && newQuestionAnswer === '2')) { 
+        console.log('Correct answer!');
+        answerCorrect = true;
+        score += 1;        
 
         // Displaying the current score in the console 
+        displayScore(score);
 
         // Calling the 'next question' function
+        nextQuestion();        
         
+    } else if(newQuestionAnswer === 'exit') {
+        return;
+    } else {
+        console.log('Wrong answer. Try again :)');
+        answerCorrect = false;
+
         // Displaying the current score in the console 
+        displayScore(score);    
 
         // Calling the 'next question' function
+        nextQuestion();
+    }
+}
 
 /* ---------------------------------------------------------------------------------------------------- */
