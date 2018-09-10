@@ -1,6 +1,6 @@
-/* ************************************ */
-/* USING LET & CONST - SCOPING EXAMPLES */
-/* ************************************ */
+/* ***************************************** */
+/* ES6 - USING LET & CONST (SCOPING EXAMPLE) */
+/* ***************************************** */
 
 // ES5 version
 function driversLicence5(passedTest) {
