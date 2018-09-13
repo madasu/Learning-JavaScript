@@ -2,7 +2,7 @@
 /* ES6 - USING LET & CONST (SCOPING EXAMPLE) */
 /* ***************************************** */
 
-// ES5 version
+// ES5 - DECLARING VARIABLES INSIDE A FUNCTION
 function driversLicence5(passedTest) {
     if (passedTest) {
         console.log(firstName); // The value of 'firstName' is set to undefined
@@ -14,7 +14,7 @@ function driversLicence5(passedTest) {
 
 driversLicence5(true);
 
-// ES6 version 
+// ES6 - DECLARING VARIABLES INSIDE A FUNCTION
 function driversLicence6(passedTest) {
     
     // console.log(firstName); - The value of 'firstName' is said to be not defined
@@ -29,7 +29,7 @@ function driversLicence6(passedTest) {
 
 driversLicence6(true);
 
-// More practical example of ES6's syntax
+// MORE PRACTICAL EXAMPLE OF ES6'S SYNTAX
 let i = 23;
 
 for (let i = 0; i < 5; i++) {

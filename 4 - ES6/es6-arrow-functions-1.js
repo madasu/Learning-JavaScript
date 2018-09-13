@@ -5,13 +5,13 @@
 // Data used in the example
 const years = [1997, 1991, 1980, 1955];
 
-// ES5 - Using the 'map' method to loop over the array
+// ES5 - USING THE 'MAP' METHOD TO LOOP OVER AN ARRAY
 var ages5 = years.map(function(el) {
     return 2018 - el;
 });
 console.log(ages5);
 
-/* ES6 - Using the 'map' method to loop over the array (showing the 3 different ways of writing arrow functions) */
+/* ES6 - USING THE 'MAP' METHOD TO LOOP OVER AN ARRAY (SHOWING THE 3 DIFFERENT WAYS OF WRITING ARROW FUNCTIONS) */
 let ages6 = years.map(el => 2018 - el);
 console.log(ages6);
 

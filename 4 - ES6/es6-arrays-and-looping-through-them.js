@@ -5,7 +5,7 @@
 // Selecting all the boxes from the section's page 
 const boxes = document.querySelectorAll('.box');
 
-// ES5 - Transforming the boxes 'NodeList' into an array 
+// ES5 - TRANSFORMING THE BOXES 'NODELIST' INTO AN ARRAY
 var boxesArr5 = Array.prototype.slice.call(boxes);
 
 /* Using array methods on the new created array (changing the background color of the boxed to 'dodgerblue') */
@@ -13,10 +13,10 @@ boxesArr5.forEach(function(cur) {
     cur.style.backgroundColor = 'dodgerblue';
 });
 
-// ES6 - Transforming the boxes 'NodeList' into an array
+// ES6 - TRANSFORMING THE BOXES 'NODELIST' INTO AN ARRAY
 const boxesArr6 = Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 
-// ES5 - Using a 'for' loop to change the text of the boxes that were turned blue
+/* ES5 - USING A 'FOR' LOOP TO CHANGE THE TEXT OF THE BOXES THAT WERE TURNED BLUE */
 for (var i = 0; i < boxesArr5.length; i++) {
     
     // Condition that looks for the box with the classes 'box' and 'blue' on it
@@ -29,7 +29,7 @@ for (var i = 0; i < boxesArr5.length; i++) {
 
 }
 
-// ES6 - Using a 'for of' loop to change the text of the boxes that were turned blue
+/* ES6 - USING A 'FOR' LOOP TO CHANGE THE TEXT OF THE BOXES THAT WERE TURNED BLUE */
 const boxesArr6ForOf = Array.from(boxes);
 
 for (const cur of boxesArr6ForOf) {
@@ -41,7 +41,7 @@ for (const cur of boxesArr6ForOf) {
     cur.textContent = 'I changed to blue';
 }
 
-// ES5 - Finding out a specific element (in this example finding out which person is of 'full age') 
+/* ES5 - FINDING OUT A SPECIFIC ELEMENT (IN THIS EXAMPLE FINDING OUT WHICH PERSON IS OF FULL AGE) */
 var ages = [11, 15, 17, 9, 21, 7];
 
 var fullAge = ages.map(function(cur) {
@@ -51,6 +51,6 @@ console.log(fullAge);
 console.log(fullAge.indexOf(true));
 console.log(ages[fullAge.indexOf(true)]);
 
-// ES6 - 2 new useful methods that allow to find elements in an array
+// ES6 - 2 NEW USEFUL METHODS THAT ALLOW TO FIND ELEMENTS IN AN ARRAY
 console.log(ages.findIndex(cur => cur >= 18));
 console.log(ages.find(cur => cur >= 18));

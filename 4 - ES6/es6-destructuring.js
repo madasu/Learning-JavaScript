@@ -5,16 +5,16 @@
 // Data used in the examples
 var paulo5 = ['Paulo', 21];
 
-// ES5 version of store each element of a data structure in a single variable
+// ES5 VERSION OF STORE EACH ELEMENT OF A DATA STRUCTURE IN A SINGLE VARIABLE
 var name5 = paulo5[0];
 var age5 = paulo5[1];
 
-// ES6 version of store each element of a data structure in a single variable (example #1)
+// ES6 VERSION OF STORE EACH ELEMENT OF A DATA STRUCTURE IN A SINGLE VARIABLE (EXAMPLE #1)
 const [name6, age6] = ['Paulo', 21];
 console.log(name6);
 console.log(age6);
 
-// ES6 version of store each element of a data structure in a single variable (example #2)
+// ES6 VERSION OF STORE EACH ELEMENT OF A DATA STRUCTURE IN A SINGLE VARIABLE (EXAMPLE #2)
 const obj = {
     firstName: 'Paulo',
     lastName: 'Cunha'
@@ -29,7 +29,7 @@ const {firstName: a, lastName: b} = obj;
 console.log(a);
 console.log(b);
 
-/* More practical application of 'destructuring' (returning multiple values from a function). In ES5, usually, if there was more than 1 value to return an object should be returned. With destructuring the task of returning multiple values got easier */ 
+/* MORE PRACTICAL APPLICATION OF 'DESTRUCTURING' (RETURNING MULTIPLE VALUES FROM A FUNCTION). IN ES5, USUALLY, IF THERE WAS MORE THAN 1 VALUE TO RETURN AN OBJECT SHOULD BE RETURNED. WITH DESTRUCTURING THE TASK OF RETURNING MULTIPLE VALUES GOT EASIER */
 function calcAgeRetirement(year) {
     const age = new Date().getFullYear() - year;
     return [age, 65 - age];

@@ -2,7 +2,7 @@
 /* ES6 - ARROW FUNCTIONS LEXICAL 'THIS' KEYWORD */
 /************************************************/
 
-// ES5 - Creating an object and a function which will attach an event handler to the green box 
+/* ES5 - CREATING AN OBJECT AND A FUNCTION WHICH WILL ATTACH AN EVENT HANDLER TO THE GREEN BOX */
 var box5 = {
     color: 'green',
     position: 1,
@@ -18,7 +18,7 @@ var box5 = {
 
 box5.clickMe();
 
-/* ES6 - Creating an object and a function which will attach an event handler to the green box (scenario #1). The inner method shares the lexical 'this' keyword from its surrondings, so the event works properly. */
+/* ES6 - CREATING AN OBJECT AND A FUNCTION WHICH WILL ATTACH AN EVENT HANDLER TO THE GREEN BOX (SCENARIO #1). THE INNER METHOD SHARES THE LEXICAL 'THIS' KEYWORD FROM ITS SURROUNDINGS, SO THE EVENT WORKS PROPERLY */
 const box6_scenario1 = {
     color: 'green',
     position: 1,
@@ -31,8 +31,7 @@ const box6_scenario1 = {
 };
 
 box6_scenario1.clickMe();
-
-/* ES6 - Creating an object and a function which will attach an event handler to the green box (scenario #2). The inner method shares the lexical 'this' keyword from its surroundings (in this case the surrounding is the global context, so the event doesn't work properly). */
+/* ES6 - CREATING AN OBJECT AND A FUNCTION WHICH WILL ATTACH AN EVENT HANDLER TO THE GREEN BOX (SCENARIO #2). THE INNER METHOD SHARES THE LEXICAL 'THIS' KEYWORD FROM ITS SURROUNDINGS (IN THIS CASE THE SURROUNDING IT'S THE GLOBAL CONTEXT, SO THE EVENT DOESN'T WORK PROPERLY) */
 const box6_scenario2 = {
     color: 'green',
     position: 1,
@@ -46,7 +45,7 @@ const box6_scenario2 = {
 
 box6_scenario2.clickMe();
 
-// ES5 - Another example of using the arrow functions when dealing with objects 
+/* ES5 - OLDER WAY TO DEAL WITH OBJECTS, SETTING THE 'THIS' VARIABLE MANUALLY, USING THE 'BIND TRICK' */
 function Person(name) {
     this.name = name;
 }
@@ -62,7 +61,7 @@ var friends = ['Henrique', 'James', 'Bob'];
 
 new Person('Paulo').myFriends5(friends);
 
-// ES6 - Another example of using the arrow functions when dealing with objects
+/* ES6 - ANOTHER EXAMPLE OF USING THE ARROW FUNCTIONS FOR ACHIEVING THE SAME RESULT WITH USING THE 'TRICK' SHOWED ABOVE */
 function Person(name) {
     this.name = name;
 }

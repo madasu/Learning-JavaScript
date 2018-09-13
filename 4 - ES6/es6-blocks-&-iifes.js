@@ -2,12 +2,12 @@
 /* ES6 - BLOCKS AND IIFE'S */
 /***************************/
 
-// ES5 version of writting an IIFE 
+// ES5 - WRITING AN IIFE TO ACHIEVE DATA PRIVACY
 (function() {
     var c = 3;
 })();
 
-// ES6 - Achieving data privacy using a block 
+// ES6 - ACHIEVING DATA PRIVACY USING A BLOCK
 {   
     // 'const' and 'let' are 'block scoped'
     const a = 1;
