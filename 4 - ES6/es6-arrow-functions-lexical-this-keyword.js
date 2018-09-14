@@ -24,7 +24,7 @@ const box6_scenario1 = {
     position: 1,
     clickMe: function() {
         document.querySelector('.green').addEventListener('click', () => {
-           const str = `This is box number ${this.position} and it\'s ${this.color}.`;
+           const str = `This is box number ${this.position} and it's ${this.color}.`;
            alert(str);           
         });
     }
@@ -37,7 +37,7 @@ const box6_scenario2 = {
     position: 1,
     clickMe: () => {
         document.querySelector('.green').addEventListener('click', () => {
-            const str = `This is box number ${this.position} and it\'s ${this.color}.`;
+            const str = `This is box number ${this.position} and it's ${this.color}.`;
             alert(str);
         });
     }

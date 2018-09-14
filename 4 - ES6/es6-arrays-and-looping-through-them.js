@@ -29,7 +29,7 @@ for (var i = 0; i < boxesArr5.length; i++) {
 
 }
 
-/* ES6 - USING A 'FOR' LOOP TO CHANGE THE TEXT OF THE BOXES THAT WERE TURNED BLUE */
+/* ES6 - USING A 'FOR... OF...' LOOP TO CHANGE THE TEXT OF THE BOXES THAT WERE TURNED BLUE */
 const boxesArr6ForOf = Array.from(boxes);
 
 for (const cur of boxesArr6ForOf) {

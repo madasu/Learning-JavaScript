@@ -1,46 +1,56 @@
-/****************************/
-/* ES6 - DEFAULT PARAMETERS */
-/****************************/
+/**************/
+/* ES6 - MAPS */
+/**************/
 
-// ES5 - CREATING 'DEFAULT PARAMETERS'
+/* JavaScript objects can be used as 'hash maps', which means that string keys are mapped to arbitrary values. In ES6, objects are not needed for this tasks, as a new 'key-value' data structure exists (maps). In 'maps', anything can be used as keys (in objects only strings can be used) */
 
-// Function constructor used in the examples
-function CunhaPerson(firstName, yearOfBirth, lastName, nationality) {
+// Creating an example map
+const question = new Map();
 
-    // Creating predefined values when the 'lastName' and 'nationality' are not specified
-    lastName === undefined ? lastName = 'Cunha' : lastName = lastName;
-    nationality === undefined ? nationality = 'portuguese' : nationality = nationality;
+// Adding data to the method (a question in this case)
+question.set('question', 'What is the official name of the JS version discussed in this section?');
 
-    // Finish creating the function constructor
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.yearOfBirth = yearOfBirth;
-    this.nationality = nationality;
+// Adding data to the method (the answers in this case)
+question.set(1, 'ES5');
+question.set(2, 'ES6');
+question.set(3, 'ES2015');
+question.set(4, 'ES7');
+question.set('correct', 3);
 
+// Adding the result (what happens if the answer is correct or wrong)
+question.set(true, 'Correct answer! :D');
+question.set(false, 'Wrong answer, please try again! :)');  
+
+// Retrieving data from the map
+console.log(question.get('question'));
+// console.log(question.size);
+
+// Checking if the map has a given key and deleting it if the key is there
+if(question.has(4)) { 
+    // question.delete(4); 
+    // console.log('Answer 4 is here!');   
 }
 
-/* Creating a new instance of the 'CunhaPerson' function constructor without specifying all the
-parameters */
-// var paulo = new CunhaPerson('Paulo', 1997);
+// Deleting all the keys at the same time (using the 'clear' method)
+// question.clear();
 
-/* Creating a new instance of the 'CunhaPerson' function constructor specifying all the
-parameters */
-// var henrique = new CunhaPerson('Henrique', 1990, 'Costa', 'english');
+// Maps are iterable (a loop can be used through them) - using 'forEach'
+// question.forEach((value, key) => console.log(`This is ${key} and it's set to ${value}`));
 
-// ES6 - USING 'DEFAULT PARAMETERS'
+// Maps are iterable (a loop can be used through them) - using 'for... of...'
+// for (let [key, value] of question.entries()) {
+//     console.log(`This is ${key}, and it's set to ${value}`);
+// }
 
-// Function constructor used in the examples
-function CunhaPerson(firstName, yearOfBirth, lastName = 'Cunha', nationality = 'portuguese') {
-    this.firstName = firstName;
-    this.yearOfBirth = yearOfBirth;
-    this.lastName = lastName;
-    this.nationality = nationality;
+// Printing to the screen only the answers (using the data type 'number' to our 'advantage')
+for (let [key, value] of question.entries()) {
+    if (typeof(key) === 'number') {
+        console.log(`Answer ${key}: ${value}`);
+    }
 }
 
-/* Creating a new instance of the 'CunhaPerson' function constructor without specifying all the
-parameters */
-var paulo = new CunhaPerson('Paulo', 1997);
+// Using the 'prompt' function to write the answer 
+const ans = parseInt(prompt('Write the correct answer!'));
 
-/* Creating a new instance of the 'CunhaPerson' function constructor specifying all the
-parameters */
-var henrique = new CunhaPerson('Henrique', 1990, 'Costa', 'english');
+// Checking if the answer is correct
+console.log(question.get(ans === question.get('correct')));

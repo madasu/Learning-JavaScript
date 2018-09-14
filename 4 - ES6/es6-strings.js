@@ -14,7 +14,7 @@ function calcAge(year) {
 console.log('This\'s ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he\'s ' + calcAge(yearOfBirth) + ' years old.');
 
 // ES6 VERSION OF PUTTING THIS DATA TOGETHER IN A STRING (TEMPLATE LITERALS)
-console.log(`This\'s ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he\'s ${calcAge(yearOfBirth)} years old.`);
+console.log(`This's ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he's ${calcAge(yearOfBirth)} years old.`);
 
 // ES6 - NEW STRING METHODS
 const n = `${firstName} ${lastName}`;
