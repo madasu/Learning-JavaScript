@@ -68,7 +68,7 @@ class Athlete6 extends Person6 {
     // Create the function constructor
     constructor(name, yearOfBirth, occupation, olympicGames, medals) {
 
-        // Call the superclass    
+        // Calling the superclass    
         super(name, yearOfBirth, occupation);
         
         // Setting the properties of the subclass
@@ -77,11 +77,11 @@ class Athlete6 extends Person6 {
 
     }
 
-        /* Add a method associated with the subclass Athlete6 (a method that increases the number of medals by 1) */
-        wonMedal() {
-            this.medals++;
-            console.log(this.medals);
-        }
+    /* Add a method associated with the subclass Athlete6 (a method that increases the number of medals by 1) */
+    wonMedal() {
+        this.medals++;
+        console.log(this.medals);
+    }
           
 } 
 

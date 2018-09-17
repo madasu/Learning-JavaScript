@@ -22,3 +22,67 @@
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 
 */
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// CREATING THE TOWN ELEMENT CLASS
+class TownElement {
+
+    // Element function constructor
+    constructor(name, buildYear) {
+        this.name = name;
+        this.buildYear = buildYear;
+    }
+
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// CREATING THE PARK SUBCLASS
+class Park extends TownElement {
+
+    // Park subclass function constructor
+    constructor(name, buildYear, parkArea, numberOfTrees) {
+
+        // Call the superclass 
+        super(name, buildYear);
+
+        // Setting the properties of the subclass 
+        this.parkArea = parkArea;
+        this.numberOfTrees = numberOfTrees;
+
+    }
+
+    // Method that calculates the tree density of each park in the town 
+    calcTreeDensity() {
+        let treeDensity = this.numberOfTrees / this.parkArea;
+        this.treeDensity = treeDensity;
+        console.log(`${this.name} has a tree density of ${this.treeDensity} per square km.`);
+        return treeDensity;
+    }
+
+    // Method that calculates the age of each town's park
+    calcParkAge() {
+        let parkAge = new Date().getFullYear() - this.buildYear;
+        this.parkAge = parkAge;
+        return parkAge;
+    }
+
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Creating the first park ('Green Park')
+greenPark = new Park('Green Park', 1980, 15, 15131);
+greenPark.calcTreeDensity();
+greenPark.calcParkAge();
+
+// Creating the second park ('National Park')
+nationalPark = new Park('National Park', 1990, 5, 6657);
+nationalPark.calcTreeDensity();
+nationalPark.calcParkAge();
+
+// Creating the third park ('Oak Park')
+oakPark = new Park('Oak Park', 2003, 6, 3150);
+oakPark.calcTreeDensity();
+oakPark.calcParkAge();
