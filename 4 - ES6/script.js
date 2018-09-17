@@ -38,6 +38,12 @@ class TownElement {
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+// Variable that will hold the number of existing parks 
+numberOfParks = 0;
+
+// Array that will contain the ages of each park
+parkAges = [];
+
 // CREATING THE PARK SUBCLASS
 class Park extends TownElement {
 
@@ -50,6 +56,9 @@ class Park extends TownElement {
         // Setting the properties of the subclass 
         this.parkArea = parkArea;
         this.numberOfTrees = numberOfTrees;
+
+        // Increasing the number of parks by 1
+        numberOfParks += 1;
 
     }
 
@@ -65,6 +74,7 @@ class Park extends TownElement {
     calcParkAge() {
         let parkAge = new Date().getFullYear() - this.buildYear;
         this.parkAge = parkAge;
+        parkAges.push(this.parkAge);
         return parkAge;
     }
 
@@ -83,6 +93,22 @@ nationalPark.calcTreeDensity();
 nationalPark.calcParkAge();
 
 // Creating the third park ('Oak Park')
-oakPark = new Park('Oak Park', 2003, 6, 3150);
+oakPark = new Park('Oak Park', 2003, 3, 3150);
 oakPark.calcTreeDensity();
 oakPark.calcParkAge();
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Function that calculates the average age of each town's park 
+function calcAvgParkAge(ages) {
+
+    // Getting the summed ages
+    const summedAges = ages.reduce((a, b) => a + b);
+
+    // Calculate the average age 
+    const avgParkAge = summedAges / numberOfParks;
+    console.log(`Our 3 parks have an average of ${avgParkAge} years.`);
+
+}
+
+calcAvgParkAge(parkAges);

@@ -26,7 +26,7 @@ function isFullAge5() {
 // isFullAge5(1997, 2005, 1965, 2003, 1970);
 
 /* ES6 - PRACTICAL EXAMPLE OF USING REST PARAMETERS (CREATE A FUNCTION THAT RECEIVES AN ARBITRARY NUMBER
-OF YEARS AN THEN PRINTS TO THE CONSOLE WHETHER THE PERSON CORRESPONDING TO THESE YEARS IF OF 'FULL AGE' */
+OF YEARS AN THEN PRINTS TO THE CONSOLE WHETHER THE PERSON CORRESPONDING TO THESE YEARS IF OF 'FULL AGE') */
 function isFullAge6(...years) {
     years.forEach(cur => console.log((2018 - cur) >= 18));
 }
@@ -46,6 +46,7 @@ function isFullAge5(limit) {
     argsArr.forEach(function(cur) {
         console.log((2018 - cur) >= limit);
     });
+    
 }
 
 // Calling the 'isFullAge5' function (example #2)
