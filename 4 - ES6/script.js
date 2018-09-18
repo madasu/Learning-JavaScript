@@ -39,10 +39,13 @@ class TownElement {
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Variable that will hold the number of existing parks 
-numberOfParks = 0;
+let numberOfParks = 0;
 
 // Array that will contain the ages of each park
-parkAges = [];
+const parkAges = [];
+
+// Array that will hold the parks that have more than 1000 trees
+let moreThan1000 = [];
 
 // CREATING THE PARK SUBCLASS
 class Park extends TownElement {
@@ -60,6 +63,11 @@ class Park extends TownElement {
         // Increasing the number of parks by 1
         numberOfParks += 1;
 
+        // Checking if the park has more than 1000 trees
+        if (this.numberOfTrees >= 1000) {
+            moreThan1000.push(this.name);
+        }
+    
     }
 
     // Method that calculates the tree density of each park in the town 
@@ -83,17 +91,17 @@ class Park extends TownElement {
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the first park ('Green Park')
-greenPark = new Park('Green Park', 1980, 15, 15131);
+greenPark = new Park('Green Park', 1980, 1, 983);
 greenPark.calcTreeDensity();
 greenPark.calcParkAge();
 
 // Creating the second park ('National Park')
-nationalPark = new Park('National Park', 1990, 5, 6657);
+nationalPark = new Park('National Park', 1990, 5, 9406);
 nationalPark.calcTreeDensity();
 nationalPark.calcParkAge();
 
 // Creating the third park ('Oak Park')
-oakPark = new Park('Oak Park', 2003, 3, 3150);
+oakPark = new Park('Oak Park', 2003, 3, 1354);
 oakPark.calcTreeDensity();
 oakPark.calcParkAge();
 
@@ -110,5 +118,18 @@ function calcAvgParkAge(ages) {
     console.log(`Our 3 parks have an average of ${avgParkAge} years.`);
 
 }
-
 calcAvgParkAge(parkAges);
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Function that retrieves the name of the park(s) with more than 1000 trees 
+function logMoreThan1000(...numbers) {
+    numbers.forEach(el => {
+        if (numbers.length === 1) {
+            console.log(`${el} has more than 1000 trees.`);
+        }
+    });
+}
+logMoreThan1000(moreThan1000);
+
+/* ---------------------------------------------------------------------------------------------------- */
