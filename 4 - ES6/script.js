@@ -133,3 +133,16 @@ function logMoreThan1000(...numbers) {
 logMoreThan1000(moreThan1000);
 
 /* ---------------------------------------------------------------------------------------------------- */
+
+// CREATING THE STREET SUBCLASS
+class Street extends TownElement {
+    
+    // Street subclass function constructor 
+    constuctor(name, buildYear // ...) {
+
+        // Use the superclass properties
+        super(name, buidYear);
+
+    }
+
+}
