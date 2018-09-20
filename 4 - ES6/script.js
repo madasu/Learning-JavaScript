@@ -47,6 +47,8 @@ const parkAges = [];
 // Array that will hold the parks that have more than 1000 trees
 let moreThan1000 = [];
 
+/* ---------------------------------------------------------------------------------------------------- */
+
 // CREATING THE PARK SUBCLASS
 class Park extends TownElement {
 
@@ -96,19 +98,19 @@ console.log('----------PARKS REPORT----------');
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the first park ('Green Park') and calculating its age
-greenPark = new Park('Green Park', 1980, 1, 983);
+let greenPark = new Park('Green Park', 1980, 1, 983);
 greenPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the second park ('National Park') and calculating its age
-nationalPark = new Park('National Park', 1990, 3, 3045);
+let nationalPark = new Park('National Park', 1990, 3, 3045);
 nationalPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the third park ('Oak Park') and calculating its age
-oakPark = new Park('Oak Park', 2003, 1, 625);
+let oakPark = new Park('Oak Park', 2003, 1, 625);
 oakPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -121,7 +123,7 @@ function calcAvgParkAge(ages) {
 
     // Calculate the average age 
     const avgParkAge = summedAges / numberOfParks;
-    console.log(`Our 3 parks have an average of ${avgParkAge} years.`);
+    console.log(`Our ${numberOfParks} parks have an average of ${avgParkAge} years.`);
 
 }
 calcAvgParkAge(parkAges);
@@ -147,6 +149,14 @@ logMoreThan1000(moreThan1000);
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+// Variable that will hold the number of streets in the town
+let numberOfStreets = 0;
+
+// Array that will hold the lengths of all streets 
+let streetLengths = []; 
+
+/* ---------------------------------------------------------------------------------------------------- */
+
 // CREATING THE STREET SUBCLASS
 class Street extends TownElement {
     
@@ -160,6 +170,52 @@ class Street extends TownElement {
         this.streetLength = streetLength;
         this.streetClassification = streetClassification;
 
+        // Increasing the number of streets of the town by 1
+        numberOfStreets += 1;
+
+        // Adding the street length to the array that contains all of the lengths
+        streetLengths.push(this.streetLength);
+
     }
 
 }
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Logging the 'Street Report' title 
+console.log('----------STREETS REPORT----------');
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Creating the first street ('Ocean Avenue') 
+let oceanAvenue = new Street('Ocean Avenue', 1999, 1.5, 'big');
+
+// Creating the second street ('Evergreen Street') 
+let evergreenStreet = new Street('Evergreen Street', 2008, 0.3, 'small');
+
+// Creating the third street ('3th Street') 
+let thirdStreet = new Street('3rd Street', 2015, 1.1, 'normal');
+
+// Creating the forth street ('Sunset Boulevard')
+let sunsetBoulevard = new Street('Sunset Boulevard', 1982, 1.9, 'huge');
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Method that calculates the total and average length of all streets 
+function totalAndAvglength(lengths) {
+
+    // Calculating the total length of all streets 
+    let totalLength = lengths.reduce((a, b) => a + b);
+
+    // Calculating the average length of all streets
+    let avgLength = totalLength / numberOfStreets;
+
+    // Logging to the console the total and average length of all streets 
+    console.log(`Our ${numberOfStreets} streets have a total length of ${totalLength} km, with an average of ${avgLength} km.`);
+
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Calling the method that calculates the total and average length of the streets
+totalAndAvglength(streetLengths);
