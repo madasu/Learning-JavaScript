@@ -161,14 +161,14 @@ let streetLengths = [];
 class Street extends TownElement {
     
     // Street subclass function constructor 
-    constructor(name, buildYear, streetLength, streetClassification) {
+    constructor(name, buildYear, streetLength, streetCategory) {
 
         // Using the superclass properties
         super(name, buildYear);
 
         // Setting the properties of the subclass
         this.streetLength = streetLength;
-        this.streetClassification = streetClassification;
+        this.streetCategory = streetCategory;
 
         // Increasing the number of streets of the town by 1
         numberOfStreets += 1;
@@ -176,6 +176,11 @@ class Street extends TownElement {
         // Adding the street length to the array that contains all of the lengths
         streetLengths.push(this.streetLength);
 
+    }
+
+    // Method that describes the created street
+    streetDescription() {
+        console.log(`${this.name}, built in ${this.buildYear}, is a ${this.streetCategory} street.`);
     }
 
 }
@@ -219,3 +224,13 @@ function totalAndAvglength(lengths) {
 
 // Calling the method that calculates the total and average length of the streets
 totalAndAvglength(streetLengths);
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Calling the 'description' method on each of the 4 created streets 
+oceanAvenue.streetDescription();
+evergreenStreet.streetDescription();
+thirdStreet.streetDescription();
+sunsetBoulevard.streetDescription();
+
+/* ---------------------------------------------------------------------------------------------------- */
