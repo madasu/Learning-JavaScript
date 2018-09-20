@@ -53,7 +53,7 @@ class Park extends TownElement {
     // Park subclass function constructor
     constructor(name, buildYear, parkArea, numberOfTrees) {
 
-        // Call the superclass 
+        // Using the superclass properties
         super(name, buildYear);
 
         // Setting the properties of the subclass 
@@ -90,19 +90,25 @@ class Park extends TownElement {
 
 /* ---------------------------------------------------------------------------------------------------- */
 
-// Creating the first park ('Green Park')
+// Logging the 'Park Report' title 
+console.log('----------PARKS REPORT----------');
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Creating the first park ('Green Park') and calculating its age
 greenPark = new Park('Green Park', 1980, 1, 983);
-greenPark.calcTreeDensity();
 greenPark.calcParkAge();
 
-// Creating the second park ('National Park')
-nationalPark = new Park('National Park', 1990, 5, 9406);
-nationalPark.calcTreeDensity();
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Creating the second park ('National Park') and calculating its age
+nationalPark = new Park('National Park', 1990, 3, 3045);
 nationalPark.calcParkAge();
 
-// Creating the third park ('Oak Park')
-oakPark = new Park('Oak Park', 2003, 3, 1354);
-oakPark.calcTreeDensity();
+/* ---------------------------------------------------------------------------------------------------- */
+
+// Creating the third park ('Oak Park') and calculating its age
+oakPark = new Park('Oak Park', 2003, 1, 625);
 oakPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -122,12 +128,19 @@ calcAvgParkAge(parkAges);
 
 /* ---------------------------------------------------------------------------------------------------- */
 
+// Calculating the tree density of the 3 created parks 
+greenPark.calcTreeDensity();
+nationalPark.calcTreeDensity();
+oakPark.calcTreeDensity();
+
+/* ---------------------------------------------------------------------------------------------------- */
+
 // Function that retrieves the name of the park(s) with more than 1000 trees 
 function logMoreThan1000(...numbers) {
     numbers.forEach(el => {
         if (numbers.length === 1) {
             console.log(`${el} has more than 1000 trees.`);
-        }
+        } 
     });
 }
 logMoreThan1000(moreThan1000);
@@ -138,10 +151,14 @@ logMoreThan1000(moreThan1000);
 class Street extends TownElement {
     
     // Street subclass function constructor 
-    constuctor(name, buildYear // ...) {
+    constructor(name, buildYear, streetLength, streetClassification) {
 
-        // Use the superclass properties
-        super(name, buidYear);
+        // Using the superclass properties
+        super(name, buildYear);
+
+        // Setting the properties of the subclass
+        this.streetLength = streetLength;
+        this.streetClassification = streetClassification;
 
     }
 
