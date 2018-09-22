@@ -161,7 +161,7 @@ let streetLengths = [];
 class Street extends TownElement {
     
     // Street subclass function constructor 
-    constructor(name, buildYear, streetLength, streetCategory) {
+    constructor(name, buildYear, streetLength, streetCategory = 'normal') {
 
         // Using the superclass properties
         super(name, buildYear);
@@ -199,7 +199,7 @@ let oceanAvenue = new Street('Ocean Avenue', 1999, 1.5, 'big');
 let evergreenStreet = new Street('Evergreen Street', 2008, 0.3, 'small');
 
 // Creating the third street ('3th Street') 
-let thirdStreet = new Street('3rd Street', 2015, 1.1, 'normal');
+let thirdStreet = new Street('3rd Street', 2015, 1.1);
 
 // Creating the forth street ('Sunset Boulevard')
 let sunsetBoulevard = new Street('Sunset Boulevard', 1982, 1.9, 'huge');
