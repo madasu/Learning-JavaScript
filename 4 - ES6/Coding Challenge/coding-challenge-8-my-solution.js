@@ -12,7 +12,7 @@
 
 * At the end-of-year meeting, your boss wants a final report with the following:
 * 1. Tree density of each park in the town (formula: number of trees/park area)
-* 2. Average age of each town's park (formula: sum of all ages/number of parks)
+* 2. Average age of all the parks (formula: sum of all ages/number of parks)
 * 3. The name of the park that has more than 1000 trees
 * 4. Total and average length of the town's streets 
 * 5. Size classification of all streets: tiny/small/normal/big/huge (if the size is unknown, the default is normal)
@@ -98,19 +98,19 @@ console.log('----------PARKS REPORT----------');
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the first park ('Green Park') and calculating its age
-let greenPark = new Park('Green Park', 1980, 1, 983);
+let greenPark = new Park('Green Park', 1980, 0.2, 215);
 greenPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the second park ('National Park') and calculating its age
-let nationalPark = new Park('National Park', 1990, 3, 3045);
+let nationalPark = new Park('National Park', 1990, 2.9, 3541);
 nationalPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
 
 // Creating the third park ('Oak Park') and calculating its age
-let oakPark = new Park('Oak Park', 2003, 1, 625);
+let oakPark = new Park('Oak Park', 2003, 0.4, 949);
 oakPark.calcParkAge();
 
 /* ---------------------------------------------------------------------------------------------------- */
