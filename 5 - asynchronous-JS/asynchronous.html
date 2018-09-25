@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- MetaTags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Title of the page -->
     <title>Asynchronous JavaScript</title>
 </head>
 <body>
+
+    <!-- Content of the page -->
     <h1>Asynchronous JavaScript</h1>
+    
     <script>
         
+    /* Example of 'Asynchronous' JavaScript */
+    const second = () => {
+
+        // Setting a timer that will be called after both 'Hey there' and 'The end' have been printed
+        setTimeout(() => {
+            console.log('Async Hey there');
+        }, 2000);
+    }
+    
+    const first = () => {
+        console.log('Hey there');
+        second();
+        console.log('The end');
+    }
+    first();
+
     </script>
 </body>
 </html>
