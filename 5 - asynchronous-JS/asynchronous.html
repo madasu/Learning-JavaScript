@@ -15,24 +15,7 @@
     <!-- Content of the page -->
     <h1>Asynchronous JavaScript</h1>
     
-    <script>
-        
-    /* Example of 'Asynchronous' JavaScript */
-    const second = () => {
-
-        // Setting a timer that will be called after both 'Hey there' and 'The end' have been printed
-        setTimeout(() => {
-            console.log('Async Hey there');
-        }, 2000);
-    }
-    
-    const first = () => {
-        console.log('Hey there');
-        second();
-        console.log('The end');
-    }
-    first();
-
-    </script>
+    <!-- JavaScript files -->
+    <script src="script.js"></script>
 </body>
 </html>
