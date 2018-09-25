@@ -1,8 +1,10 @@
-/******************************************/
-/* ASYNCHRONOUS JAVASCRIPT WITH PROMISSES */
-/******************************************/
+/**************************************/
+/* ASYNCHRONOUS JAVASCRIPT - PROMISES */
+/**************************************/
 
 /* Example of using a promise (recreating the example of 'Asynchronous JavaScript with callbacks') */
+
+// Creating the first promise (to get the IDs of each recipe)
 const getIDs = new Promise((resolve, reject) => {
     setTimeout(() => {
         // Calling the 'resolve' function that marks the promise was 'fulfilled'
@@ -14,8 +16,8 @@ const getIDs = new Promise((resolve, reject) => {
 const getRecipe = recID => {
     return new Promise((resolve, reject) => {
         setTimeout(ID => {
-            const recipe1 = {title: 'Fresh tomato pasta', publisher: 'Paulo'};
-            resolve(`${ID}: ${recipe1.title}`);
+            const recipe = {title: 'Fresh tomato pasta', publisher: 'Paulo'};
+            resolve(`${ID}: ${recipe.title}`);
         }, 1500, recID);
     });
 };

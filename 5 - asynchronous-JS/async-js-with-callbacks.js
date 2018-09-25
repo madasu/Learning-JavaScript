@@ -1,6 +1,6 @@
-/*******************************************************/
-/* THE OLD WAY: ASYNCHRONOUS JAVASCRIPT WITH CALLBACKS */
-/*******************************************************/
+/********************************************************/
+/* ASYNCHRONOUS JAVASCRIPT WITH CALLBACKS (THE OLD WAY) */
+/********************************************************/
 
 // Fake 'recipe reader' to simulate AJAX calls using some timers 
 function getRecipe() {
