@@ -4,7 +4,8 @@
 
 const second = () => {
 
-        // Setting a timer that will be called after both 'Hey there' and 'The end' have been printed
+        /* Setting a timer that will be called after both 'Hey there' and 'The 
+        end' have been printed */
         setTimeout(() => {
             console.log('Async Hey there');
         }, 2000);

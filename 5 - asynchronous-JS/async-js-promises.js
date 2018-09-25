@@ -2,7 +2,8 @@
 /* ASYNCHRONOUS JAVASCRIPT - PROMISES */
 /**************************************/
 
-/* Example of using a promise (recreating the example of 'Asynchronous JavaScript with callbacks') */
+/* Example of using a promise (recreating the example of 'Asynchronous 
+JavaScript with callbacks') */
 
 // Creating the first promise (to get the IDs of each recipe)
 const getIDs = new Promise((resolve, reject) => {
