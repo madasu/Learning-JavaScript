@@ -1,0 +1,23 @@
+{
+  "name": "learning-js",
+  "version": "1.0.0",
+  "description": "Some examples for education proposes that helped me learn how to program in JavaScript (algorithms included).",
+  "main": "index.js",
+  "dependencies": {
+    "pkg": "^4.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PortugueseDeveloper/Learning-JavaScript.git"
+  },
+  "author": "Paulo Cunha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PortugueseDeveloper/Learning-JavaScript/issues"
+  },
+  "homepage": "https://github.com/PortugueseDeveloper/Learning-JavaScript#readme"
+}
